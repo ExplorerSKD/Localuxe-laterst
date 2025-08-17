@@ -23,7 +23,7 @@ Localuxe/
 
 🚀 Getting Started
 1. Clone the Repository
-git clone https://github.com/yourusername/localuxe.git
+git clone https://github.com/yourusername/localuxe-latest.git
 cd localuxe
 2. Run with a Local Server
 To load components like navbar.html and footer.html, you must use a local server (not file://).
