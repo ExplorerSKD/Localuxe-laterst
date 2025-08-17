@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works - Localuxe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gradient-to-br from-blue-50 via-white to-indigo-50 min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+  
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 px-4" data-id="hero-section">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6" data-id="hero-title">
+        How Localuxe Works
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-id="hero-description">
+        Creating your perfect travel itinerary in just 3 simple steps using advanced AI technology
+      </p>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="py-20 px-4" data-id="process-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative" data-id="steps-grid">
+        <!-- Step 1 -->
+        <div class="relative" data-id="step-1">
+          <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-white">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center" data-id="step-1-title">Tell Us Your Preferences</h3>
+            <p class="text-gray-600 text-center mb-6" data-id="step-1-description">
+              Enter your destination, travel duration, budget level, and interests to help our AI understand what you're looking for.
+            </p>
+            <div class="space-y-3" data-id="step-1-features">
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Destination city
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Number of days
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Budget preferences
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Interest categories
+              </div>
+            </div>
+          </div>
+          <!-- Arrow for desktop -->
+          <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+            <i data-lucide="arrow-right" class="w-8 h-8 text-primary-500"></i>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative" data-id="step-2">
+          <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-white">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center" data-id="step-2-title">AI Analyzes & Plans</h3>
+            <p class="text-gray-600 text-center mb-6" data-id="step-2-description">
+              Our advanced AI processes millions of travel data points, local insights, and user preferences to create your personalized itinerary.
+            </p>
+            <div class="space-y-3" data-id="step-2-features">
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Location analysis
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Budget optimization
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Time scheduling
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Local recommendations
+              </div>
+            </div>
+          </div>
+          <!-- Arrow for desktop -->
+          <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+            <i data-lucide="arrow-right" class="w-8 h-8 text-primary-500"></i>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative" data-id="step-3">
+          <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-white">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center" data-id="step-3-title">Get Your Perfect Itinerary</h3>
+            <p class="text-gray-600 text-center mb-6" data-id="step-3-description">
+              Receive a detailed day-by-day plan with activities, costs, and recommendations. Export, share, or modify as needed.
+            </p>
+            <div class="space-y-3" data-id="step-3-features">
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Day-by-day breakdown
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Cost estimates
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Interactive map
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Export & share options
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Technology Section -->
+  <section class="py-20 bg-white px-4" data-id="technology-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-id="technology-header">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="technology-title">Powered by Advanced AI</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-id="technology-description">
+          Our AI technology combines multiple data sources and intelligent algorithms to create truly personalized travel experiences
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-id="technology-content">
+        <div class="space-y-6" data-id="technology-features">
+          <div class="flex items-start space-x-4" data-id="feature-data-analysis">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i data-lucide="database" class="w-6 h-6 text-blue-600"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-2" data-id="feature-data-title">Massive Data Analysis</h3>
+              <p class="text-gray-600" data-id="feature-data-description">
+                Processes millions of travel reviews, ratings, and location data to find the best spots for your interests.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4" data-id="feature-personalization">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i data-lucide="user-check" class="w-6 h-6 text-purple-600"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-2" data-id="feature-personalization-title">Smart Personalization</h3>
+              <p class="text-gray-600" data-id="feature-personalization-description">
+                Adapts recommendations based on your specific preferences, budget constraints, and travel style.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4" data-id="feature-optimization">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i data-lucide="trending-up" class="w-6 h-6 text-green-600"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-2" data-id="feature-optimization-title">Route Optimization</h3>
+              <p class="text-gray-600" data-id="feature-optimization-description">
+                Creates efficient daily schedules that minimize travel time and maximize your experience in each location.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4" data-id="feature-realtime">
+            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i data-lucide="clock" class="w-6 h-6 text-orange-600"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-2" data-id="feature-realtime-title">Real-time Updates</h3>
+              <p class="text-gray-600" data-id="feature-realtime-description">
+                Incorporates current information about opening hours, seasonal availability, and local events.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-primary-50 to-purple-50 rounded-2xl p-8 text-center" data-id="technology-stats">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8" data-id="stats-title">AI Performance</h3>
+          <div class="grid grid-cols-2 gap-6" data-id="stats-grid">
+            <div data-id="stat-locations">
+              <div class="text-3xl font-bold text-primary-600 mb-2">10M+</div>
+              <div class="text-sm text-gray-600">Locations Analyzed</div>
+            </div>
+            <div data-id="stat-reviews">
+              <div class="text-3xl font-bold text-primary-600 mb-2">50M+</div>
+              <div class="text-sm text-gray-600">Reviews Processed</div>
+            </div>
+            <div data-id="stat-accuracy">
+              <div class="text-3xl font-bold text-primary-600 mb-2">95%</div>
+              <div class="text-sm text-gray-600">Recommendation Accuracy</div>
+            </div>
+            <div data-id="stat-time">
+              <div class="text-3xl font-bold text-primary-600 mb-2">5s</div>
+              <div class="text-sm text-gray-600">Average Generation Time</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50 px-4" data-id="faq-section">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16" data-id="faq-header">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="faq-title">Frequently Asked Questions</h2>
+        <p class="text-xl text-gray-600" data-id="faq-description">Everything you need to know about using Localuxe</p>
+      </div>
+
+      <div class="space-y-6" data-id="faq-items">
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="faq-item-1">
+          <h3 class="font-semibold text-gray-900 mb-3" data-id="faq-question-1">How accurate are the cost estimates?</h3>
+          <p class="text-gray-600" data-id="faq-answer-1">
+            Our AI analyzes current pricing data from multiple sources to provide realistic cost estimates. However, actual costs may vary based on season, specific venues, and personal spending habits.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="faq-item-2">
+          <h3 class="font-semibold text-gray-900 mb-3" data-id="faq-question-2">Can I customize the generated itinerary?</h3>
+          <p class="text-gray-600" data-id="faq-answer-2">
+            Currently, you can influence the itinerary by selecting different interests and budget levels. Future updates will include full customization features allowing you to modify specific activities and timings.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="faq-item-3">
+          <h3 class="font-semibold text-gray-900 mb-3" data-id="faq-question-3">Does Localuxe work for all cities worldwide?</h3>
+          <p class="text-gray-600" data-id="faq-answer-3">
+            Our AI has comprehensive data for major tourist destinations worldwide. For smaller or less documented locations, the recommendations might be more general but still helpful for planning.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="faq-item-4">
+          <h3 class="font-semibold text-gray-900 mb-3" data-id="faq-question-4">Is my personal information stored or shared?</h3>
+          <p class="text-gray-600" data-id="faq-answer-4">
+            We only collect the information you provide in the planning form to generate your itinerary. We don't store personal data or share information with third parties.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-4" data-id="cta-section">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-id="cta-title">Ready to Plan Your Next Adventure?</h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto" data-id="cta-description">
+        Join thousands of travelers who trust Localuxe to create their perfect itineraries
+      </p>
+      <a 
+        href="index.html" 
+        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 transform hover:scale-105 transition-all shadow-lg"
+        data-id="cta-button"
+      >
+        <i data-lucide="compass" class="w-5 h-5 mr-2"></i>
+        Start Planning Now
+      </a>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#badge-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

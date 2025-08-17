@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Travel Planner - Localuxe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Map Integration -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- PDF Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { font-family: 'sofia-pro', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    
+    /* Interest Tags */
+    .interest-tag {
+      transition: all 0.2s ease;
+    }
+    .interest-tag:hover {
+      transform: translateY(-2px);
+    }
+    .interest-tag.selected {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    /* Budget Cards */
+    .budget-card {
+      transition: all 0.3s ease;
+    }
+    .budget-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .budget-card.selected {
+      border-color: #667eea;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    /* Travel Style Cards */
+    .travel-style-card {
+      transition: all 0.2s ease;
+    }
+    .travel-style-card.selected {
+      border-color: #10b981;
+      background-color: #ecfdf5;
+    }
+    
+    /* Map Container */
+    #map {
+      height: 400px;
+      border-radius: 12px;
+    }
+    
+    /* Scrollbar Styling */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <div class="container mx-auto px-6 py-8" data-id="planner-container">
+    <!-- Header -->
+    <div class="text-center mb-12" data-id="planner-header">
+      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4" data-id="planner-title">
+        Plan Your Perfect Indian Adventure
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-id="planner-subtitle">
+        Tell us about your dream trip and our AI will create a personalized itinerary just for you
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-id="planner-layout">
+      <!-- Planning Form -->
+      <div class="lg:col-span-2" data-id="planning-form-section">
+        <form id="planningForm" class="bg-white rounded-2xl shadow-lg p-8" data-id="planning-form">
+          
+          <!-- Destination & Duration -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8" data-id="basic-info">
+            <div data-id="destination-field">
+              <label for="destination" class="block text-sm font-medium text-gray-700 mb-2">
+                <i data-lucide="map-pin" class="w-4 h-4 inline mr-1"></i>
+                Destination
+              </label>
+              <select id="destination" name="destination" required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                <option value="">Choose your destination</option>
+                <optgroup label="North India">
+                  <option value="Delhi">Delhi</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Agra">Agra</option>
+                  <option value="Jaipur">Jaipur</option>
+                  <option value="Shimla">Shimla</option>
+                  <option value="Manali">Manali</option>
+                  <option value="Rishikesh">Rishikesh</option>
+                  <option value="Amritsar">Amritsar</option>
+                </optgroup>
+                <optgroup label="South India">
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Kochi">Kochi</option>
+                  <option value="Mysore">Mysore</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Ooty">Ooty</option>
+                  <option value="Coorg">Coorg</option>
+                  <option value="Hampi">Hampi</option>
+                </optgroup>
+                <optgroup label="West India">
+                  <option value="Goa">Goa</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Udaipur">Udaipur</option>
+                  <option value="Mount Abu">Mount Abu</option>
+                  <option value="Ajanta Caves">Ajanta Caves</option>
+                </optgroup>
+                <optgroup label="East India">
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Darjeeling">Darjeeling</option>
+                  <option value="Gangtok">Gangtok</option>
+                  <option value="Puri">Puri</option>
+                  <option value="Bhubaneswar">Bhubaneswar</option>
+                </optgroup>
+              </select>
+            </div>
+            
+            <div data-id="duration-field">
+              <label for="days" class="block text-sm font-medium text-gray-700 mb-2">
+                <i data-lucide="calendar" class="w-4 h-4 inline mr-1"></i>
+                Trip Duration
+              </label>
+              <select id="days" name="days" required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                <option value="">Select duration</option>
+                <option value="1">1 Day</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+                <option value="5">5 Days</option>
+                <option value="7">1 Week</option>
+                <option value="10">10 Days</option>
+                <option value="14">2 Weeks</option>
+                <option value="21">3 Weeks</option>
+                <option value="30">1 Month</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Budget Selection -->
+          <div class="mb-8" data-id="budget-selection">
+            <label class="block text-sm font-medium text-gray-700 mb-4">
+              <i data-lucide="indian-rupee" class="w-4 h-4 inline mr-1"></i>
+              Budget per Person (INR)
+            </label>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-id="budget-cards">
+              <div class="budget-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-budget="budget" data-id="budget-option-1">
+                <div class="text-2xl font-bold text-green-600 mb-1">₹10K-20K</div>
+                <div class="text-sm text-gray-600 mb-2">Budget</div>
+                <div class="text-xs text-gray-500">Hostels, local transport, street food</div>
+              </div>
+              <div class="budget-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-budget="mid-range" data-id="budget-option-2">
+                <div class="text-2xl font-bold text-blue-600 mb-1">₹20K-40K</div>
+                <div class="text-sm text-gray-600 mb-2">Mid-Range</div>
+                <div class="text-xs text-gray-500">3-star hotels, mix of experiences</div>
+              </div>
+              <div class="budget-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-budget="luxury" data-id="budget-option-3">
+                <div class="text-2xl font-bold text-purple-600 mb-1">₹40K-80K</div>
+                <div class="text-sm text-gray-600 mb-2">Luxury</div>
+                <div class="text-xs text-gray-500">4-star hotels, premium experiences</div>
+              </div>
+              <div class="budget-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-budget="premium" data-id="budget-option-4">
+                <div class="text-2xl font-bold text-yellow-600 mb-1">₹80K+</div>
+                <div class="text-sm text-gray-600 mb-2">Premium</div>
+                <div class="text-xs text-gray-500">5-star luxury, exclusive experiences</div>
+              </div>
+            </div>
+            <input type="hidden" id="budget" name="budget" required>
+          </div>
+
+          <!-- Travel Style -->
+          <div class="mb-8" data-id="travel-style-selection">
+            <label class="block text-sm font-medium text-gray-700 mb-4">
+              <i data-lucide="clock" class="w-4 h-4 inline mr-1"></i>
+              Travel Style
+            </label>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-id="travel-style-cards">
+              <div class="travel-style-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-style="relaxed" data-id="style-option-1">
+                <i data-lucide="coffee" class="w-8 h-8 mx-auto mb-2 text-green-600"></i>
+                <div class="font-medium mb-1">Relaxed</div>
+                <div class="text-xs text-gray-500">2-3 activities per day</div>
+              </div>
+              <div class="travel-style-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-style="moderate" data-id="style-option-2">
+                <div class="w-8 h-8 mx-auto mb-2 bg-blue-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="compass" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <div class="font-medium mb-1">Moderate</div>
+                <div class="text-xs text-gray-500">3-4 activities per day</div>
+              </div>
+              <div class="travel-style-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-style="action-packed" data-id="style-option-3">
+                <i data-lucide="zap" class="w-8 h-8 mx-auto mb-2 text-yellow-600"></i>
+                <div class="font-medium mb-1">Action-Packed</div>
+                <div class="text-xs text-gray-500">5+ activities per day</div>
+              </div>
+              <div class="travel-style-card p-4 border-2 border-gray-200 rounded-lg cursor-pointer text-center" data-style="flexible" data-id="style-option-4">
+                <i data-lucide="shuffle" class="w-8 h-8 mx-auto mb-2 text-purple-600"></i>
+                <div class="font-medium mb-1">Flexible</div>
+                <div class="text-xs text-gray-500">Adaptable schedule</div>
+              </div>
+            </div>
+            <input type="hidden" id="travelStyle" name="travelStyle" value="moderate">
+          </div>
+
+          <!-- Group Size -->
+          <div class="mb-8" data-id="group-size-selection">
+            <label for="groupSize" class="block text-sm font-medium text-gray-700 mb-2">
+              <i data-lucide="users" class="w-4 h-4 inline mr-1"></i>
+              Group Size
+            </label>
+            <select id="groupSize" name="groupSize" 
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+              <option value="1">Solo Traveler</option>
+              <option value="2" selected>Couple</option>
+              <option value="3">Small Group (3-4 people)</option>
+              <option value="5">Medium Group (5-8 people)</option>
+              <option value="9">Large Group (9+ people)</option>
+            </select>
+          </div>
+
+          <!-- Interests Selection -->
+          <div class="mb-8" data-id="interests-selection">
+            <label class="block text-sm font-medium text-gray-700 mb-4">
+              <i data-lucide="heart" class="w-4 h-4 inline mr-1"></i>
+              What interests you? (Select multiple)
+            </label>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" data-id="interests-grid">
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="culture" data-id="interest-culture">
+                <i data-lucide="landmark" class="w-6 h-6 mx-auto mb-2 text-orange-600"></i>
+                <div class="text-sm font-medium">Culture & History</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="food" data-id="interest-food">
+                <i data-lucide="utensils" class="w-6 h-6 mx-auto mb-2 text-red-600"></i>
+                <div class="text-sm font-medium">Food & Cuisine</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="nature" data-id="interest-nature">
+                <i data-lucide="tree-pine" class="w-6 h-6 mx-auto mb-2 text-green-600"></i>
+                <div class="text-sm font-medium">Nature & Parks</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="adventure" data-id="interest-adventure">
+                <i data-lucide="mountain" class="w-6 h-6 mx-auto mb-2 text-blue-600"></i>
+                <div class="text-sm font-medium">Adventure</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="art" data-id="interest-art">
+                <i data-lucide="palette" class="w-6 h-6 mx-auto mb-2 text-purple-600"></i>
+                <div class="text-sm font-medium">Art & Museums</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="shopping" data-id="interest-shopping">
+                <i data-lucide="shopping-bag" class="w-6 h-6 mx-auto mb-2 text-pink-600"></i>
+                <div class="text-sm font-medium">Shopping</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="nightlife" data-id="interest-nightlife">
+                <i data-lucide="music" class="w-6 h-6 mx-auto mb-2 text-indigo-600"></i>
+                <div class="text-sm font-medium">Nightlife</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="photography" data-id="interest-photography">
+                <i data-lucide="camera" class="w-6 h-6 mx-auto mb-2 text-gray-600"></i>
+                <div class="text-sm font-medium">Photography</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="spiritual" data-id="interest-spiritual">
+                <i data-lucide="flower" class="w-6 h-6 mx-auto mb-2 text-yellow-600"></i>
+                <div class="text-sm font-medium">Spiritual</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="beaches" data-id="interest-beaches">
+                <i data-lucide="waves" class="w-6 h-6 mx-auto mb-2 text-cyan-600"></i>
+                <div class="text-sm font-medium">Beaches</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="wellness" data-id="interest-wellness">
+                <i data-lucide="heart-pulse" class="w-6 h-6 mx-auto mb-2 text-rose-600"></i>
+                <div class="text-sm font-medium">Wellness & Spa</div>
+              </div>
+              <div class="interest-tag p-3 border-2 border-gray-200 rounded-lg cursor-pointer text-center hover:border-purple-300" data-interest="local-life" data-id="interest-local">
+                <i data-lucide="home" class="w-6 h-6 mx-auto mb-2 text-amber-600"></i>
+                <div class="text-sm font-medium">Local Life</div>
+              </div>
+            </div>
+            <input type="hidden" id="interests" name="interests">
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4" data-id="action-buttons">
+            <button type="submit" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors" data-id="generate-btn">
+              <i data-lucide="sparkles" class="w-5 h-5 mr-2"></i>
+              Generate My Itinerary
+            </button>
+            <button type="button" id="surpriseBtn" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-yellow-500 text-white rounded-lg font-medium hover:bg-yellow-600 transition-colors" data-id="surprise-btn">
+              <i data-lucide="shuffle" class="w-5 h-5 mr-2"></i>
+              Surprise Me!
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Sidebar -->
+      <div class="lg:col-span-1" data-id="results-sidebar">
+        <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-8" data-id="results-container">
+          <!-- Welcome Message -->
+          <div id="welcomeMessage" class="text-center" data-id="welcome-message">
+            <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <i data-lucide="map" class="w-8 h-8 text-purple-600"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Ready to Plan?</h3>
+            <p class="text-gray-600 text-sm">Fill out the form and we'll create your perfect Indian adventure!</p>
+            
+            <!-- User Info -->
+            <div id="userInfo" class="mt-4 p-3 bg-gray-50 rounded-lg" data-id="user-info">
+              <div class="text-sm text-gray-600">Welcome back!</div>
+              <div id="userName" class="font-medium text-gray-900"></div>
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="hidden text-center" data-id="loading-state">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Creating Your Itinerary</h3>
+            <p class="text-gray-600 text-sm">Our AI is crafting the perfect trip just for you...</p>
+          </div>
+
+          <!-- Results -->
+          <div id="resultsContent" class="hidden" data-id="results-content">
+            <!-- Results will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section (Hidden initially) -->
+    <div id="mapSection" class="hidden mt-12" data-id="map-section">
+      <div class="bg-white rounded-2xl shadow-lg p-6">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <i data-lucide="map" class="w-6 h-6 mr-2 text-purple-600"></i>
+          Your Trip Map
+        </h3>
+        <div id="map" class="rounded-lg"></div>
+        <div class="mt-4 text-sm text-gray-600">
+          <p>Interactive map showing your itinerary locations and suggested routes between destinations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+  
+  <!-- Badge -->
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module" src="scripts/planner.js"></script>
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load all shared components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    loadComponent('#badge-container');
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+
+    // Check if user is logged in
+    const user = JSON.parse(localStorage.getItem('localuxeUser') || 'null');
+    const userNameElement = document.getElementById('userName');
+    const userInfoElement = document.getElementById('userInfo');
+    
+    if (user && userNameElement) {
+      userNameElement.textContent = user.name || user.email.split('@')[0];
+      userInfoElement.classList.remove('hidden');
+    } else {
+      userInfoElement?.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

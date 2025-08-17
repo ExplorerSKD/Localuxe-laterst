@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Localuxe - AI Travel Itinerary Generator | Plan Perfect Indian Trips</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'sofia-pro', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .hero-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .floating { animation: floating 6s ease-in-out infinite; }
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg hero-pattern min-h-screen flex items-center relative overflow-hidden" data-id="hero-section">
+    <!-- Floating Elements -->
+    <div class="absolute top-20 left-20 floating" data-id="floating-element-1">
+      <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
+        <i data-lucide="map-pin" class="w-10 h-10 text-white"></i>
+      </div>
+    </div>
+    <div class="absolute top-40 right-32 floating" style="animation-delay: -2s;" data-id="floating-element-2">
+      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+        <i data-lucide="plane" class="w-8 h-8 text-white"></i>
+      </div>
+    </div>
+    <div class="absolute bottom-40 left-32 floating" style="animation-delay: -4s;" data-id="floating-element-3">
+      <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+        <i data-lucide="camera" class="w-6 h-6 text-white"></i>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10" data-id="hero-container">
+      <div class="flex items-center min-h-screen">
+        <div class="w-full lg:w-1/2 text-white" data-id="hero-content">
+          <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight" data-id="hero-title">
+            Plan Perfect
+            <span class="text-yellow-300">Indian</span>
+            Adventures
+          </h1>
+          <p class="text-xl lg:text-2xl mb-8 text-white/90" data-id="hero-subtitle">
+            AI-powered travel itineraries tailored for India. Discover hidden gems, authentic experiences, and budget-friendly trips across incredible India.
+          </p>
+          
+          <!-- Key Features -->
+          <div class="grid grid-cols-2 gap-4 mb-8" data-id="hero-features">
+            <div class="flex items-center space-x-3" data-id="feature-1">
+              <div class="w-10 h-10 bg-yellow-300/20 rounded-full flex items-center justify-center">
+                <i data-lucide="indian-rupee" class="w-5 h-5 text-yellow-300"></i>
+              </div>
+              <span class="text-white/90">INR Budget Planning</span>
+            </div>
+            <div class="flex items-center space-x-3" data-id="feature-2">
+              <div class="w-10 h-10 bg-green-300/20 rounded-full flex items-center justify-center">
+                <i data-lucide="map" class="w-5 h-5 text-green-300"></i>
+              </div>
+              <span class="text-white/90">Interactive Maps</span>
+            </div>
+            <div class="flex items-center space-x-3" data-id="feature-3">
+              <div class="w-10 h-10 bg-blue-300/20 rounded-full flex items-center justify-center">
+                <i data-lucide="download" class="w-5 h-5 text-blue-300"></i>
+              </div>
+              <span class="text-white/90">PDF Export</span>
+            </div>
+            <div class="flex items-center space-x-3" data-id="feature-4">
+              <div class="w-10 h-10 bg-purple-300/20 rounded-full flex items-center justify-center">
+                <i data-lucide="brain" class="w-5 h-5 text-purple-300"></i>
+              </div>
+              <span class="text-white/90">AI Personalized</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4" data-id="hero-actions">
+            <a href="planner.html" class="inline-flex items-center justify-center px-8 py-4 bg-yellow-400 text-gray-900 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-xl" data-id="plan-trip-btn">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-2"></i>
+              Plan My Trip
+            </a>
+            <a href="login.html" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white rounded-lg font-semibold text-lg hover:bg-white/20 transition-colors border-2 border-white/30" data-id="login-btn">
+              <i data-lucide="user" class="w-5 h-5 mr-2"></i>
+              Login / Sign Up
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Illustration -->
+        <div class="hidden lg:block lg:w-1/2 pl-12" data-id="hero-illustration">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="India Travel" 
+                 class="rounded-2xl shadow-2xl floating" 
+                 data-id="hero-image">
+            
+            <!-- Overlay Stats -->
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg" data-id="stats-overlay-1">
+              <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="users" class="w-6 h-6 text-green-600"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-900">50,000+</div>
+                  <div class="text-sm text-gray-600">Happy Travelers</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-lg" data-id="stats-overlay-2">
+              <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="map-pin" class="w-6 h-6 text-blue-600"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-900">500+</div>
+                  <div class="text-sm text-gray-600">Indian Cities</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="py-20 bg-white" data-id="destinations-section">
+    <div class="container mx-auto px-6" data-id="destinations-container">
+      <div class="text-center mb-16" data-id="destinations-header">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4" data-id="destinations-title">
+          Popular Indian Destinations
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-id="destinations-subtitle">
+          Explore incredible India with AI-crafted itineraries for every budget and interest
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-id="destinations-grid">
+        <!-- Goa -->
+        <div class="group cursor-pointer" data-id="destination-goa">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-all">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Goa Beaches" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Goa</h3>
+              <p class="text-white/90 mb-2">Starting from ₹12,000</p>
+              <div class="flex items-center space-x-1">
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <span class="text-sm text-white/80 ml-1">(2,847 trips)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kerala -->
+        <div class="group cursor-pointer" data-id="destination-kerala">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-all">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Kerala Backwaters" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Kerala</h3>
+              <p class="text-white/90 mb-2">Starting from ₹15,000</p>
+              <div class="flex items-center space-x-1">
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <span class="text-sm text-white/80 ml-1">(3,124 trips)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rajasthan -->
+        <div class="group cursor-pointer" data-id="destination-rajasthan">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-all">
+            <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Rajasthan Palaces" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Rajasthan</h3>
+              <p class="text-white/90 mb-2">Starting from ₹18,000</p>
+              <div class="flex items-center space-x-1">
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <span class="text-sm text-white/80 ml-1">(1,956 trips)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Himachal Pradesh -->
+        <div class="group cursor-pointer" data-id="destination-himachal">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-all">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Himachal Mountains" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Himachal Pradesh</h3>
+              <p class="text-white/90 mb-2">Starting from ₹10,000</p>
+              <div class="flex items-center space-x-1">
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <span class="text-sm text-white/80 ml-1">(2,341 trips)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mumbai -->
+        <div class="group cursor-pointer" data-id="destination-mumbai">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-all">
+            <img src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Mumbai Skyline" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Mumbai</h3>
+              <p class="text-white/90 mb-2">Starting from ₹8,000</p>
+              <div class="flex items-center space-x-1">
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <span class="text-sm text-white/80 ml-1">(4,752 trips)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delhi -->
+        <div class="group cursor-pointer" data-id="destination-delhi">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-all">
+            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Delhi Red Fort" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Delhi</h3>
+              <p class="text-white/90 mb-2">Starting from ₹6,000</p>
+              <div class="flex items-center space-x-1">
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                <span class="text-sm text-white/80 ml-1">(6,128 trips)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gray-50" data-id="features-section">
+    <div class="container mx-auto px-6" data-id="features-container">
+      <div class="text-center mb-16" data-id="features-header">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4" data-id="features-title">
+          Why Choose Localuxe?
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-id="features-subtitle">
+          Experience the future of travel planning with AI-powered personalization
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-id="features-grid">
+        <!-- AI Powered -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow" data-id="feature-ai">
+          <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="brain" class="w-8 h-8 text-purple-600"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">AI-Powered Planning</h3>
+          <p class="text-gray-600">Advanced AI analyzes your preferences, budget, and interests to create perfectly personalized itineraries.</p>
+        </div>
+
+        <!-- Indian Focus -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow" data-id="feature-indian">
+          <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="flag" class="w-8 h-8 text-orange-600"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">India Specialist</h3>
+          <p class="text-gray-600">Deep knowledge of Indian destinations, culture, and travel patterns for authentic local experiences.</p>
+        </div>
+
+        <!-- Budget Smart -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow" data-id="feature-budget">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="indian-rupee" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Smart Budgeting</h3>
+          <p class="text-gray-600">Real-time INR pricing with cost optimization to maximize your travel experience within budget.</p>
+        </div>
+
+        <!-- Interactive Maps -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow" data-id="feature-maps">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="map" class="w-8 h-8 text-blue-600"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Interactive Maps</h3>
+          <p class="text-gray-600">Visual trip planning with embedded maps, route optimization, and location details.</p>
+        </div>
+
+        <!-- PDF Export -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow" data-id="feature-export">
+          <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="download" class="w-8 h-8 text-red-600"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Export & Share</h3>
+          <p class="text-gray-600">Download beautiful PDF itineraries and share with travel companions effortlessly.</p>
+        </div>
+
+        <!-- 24/7 Support -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow" data-id="feature-support">
+          <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="headphones" class="w-8 h-8 text-yellow-600"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">24/7 Support</h3>
+          <p class="text-gray-600">Round-the-clock assistance for planning changes, booking help, and travel queries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 gradient-bg" data-id="cta-section">
+    <div class="container mx-auto px-6 text-center" data-id="cta-container">
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6" data-id="cta-title">
+        Ready for Your Next Adventure?
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto" data-id="cta-subtitle">
+        Join thousands of travelers who trust Localuxe for unforgettable Indian experiences
+      </p>
+      <a href="planner.html" class="inline-flex items-center justify-center px-8 py-4 bg-yellow-400 text-gray-900 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-xl" data-id="cta-button">
+        <i data-lucide="sparkles" class="w-5 h-5 mr-2"></i>
+        Start Planning Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+  
+  <!-- Badge -->
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load all shared components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    loadComponent('#badge-container');
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+  </script>
+</body>
+</html>

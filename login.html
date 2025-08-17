@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Localuxe Travel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'sofia-pro', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+  
+  <div class="w-full max-w-md" data-id="login-container">
+    <!-- Logo/Header -->
+    <div class="text-center mb-8" data-id="login-header">
+      <a href="index.html" class="inline-flex items-center space-x-2 text-white text-2xl font-bold" data-id="logo-link">
+        <i data-lucide="map-pin" class="w-8 h-8 text-yellow-300"></i>
+        <span>Localuxe</span>
+      </a>
+      <p class="text-white/80 mt-2" data-id="header-subtitle">Welcome back to your travel companion</p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="bg-white rounded-2xl p-8 shadow-2xl" data-id="login-form-container">
+      <!-- Tab Navigation -->
+      <div class="flex space-x-1 bg-gray-100 rounded-lg p-1 mb-6" data-id="tab-navigation">
+        <button class="flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors tab-btn active" data-tab="login" data-id="login-tab">
+          Login
+        </button>
+        <button class="flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors tab-btn" data-tab="register" data-id="register-tab">
+          Sign Up
+        </button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="tab-content active" data-tab="login" data-id="login-form">
+        <div class="space-y-4" data-id="login-fields">
+          <div data-id="email-field">
+            <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <div class="relative">
+              <input type="email" id="loginEmail" name="email" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent pl-10"
+                     placeholder="Enter your email">
+              <i data-lucide="mail" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            </div>
+          </div>
+          
+          <div data-id="password-field">
+            <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <div class="relative">
+              <input type="password" id="loginPassword" name="password" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent pl-10"
+                     placeholder="Enter your password">
+              <i data-lucide="lock" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            </div>
+          </div>
+          
+          <div class="flex items-center justify-between" data-id="login-options">
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded border-gray-300 text-purple-600 focus:ring-purple-500">
+              <span class="ml-2 text-sm text-gray-600">Remember me</span>
+            </label>
+            <a href="#" class="text-sm text-purple-600 hover:text-purple-500">Forgot password?</a>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full mt-6 bg-purple-600 text-white py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors font-medium" data-id="login-submit">
+          <i data-lucide="log-in" class="w-5 h-5 inline mr-2"></i>
+          Sign In
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" class="tab-content" data-tab="register" data-id="register-form">
+        <div class="space-y-4" data-id="register-fields">
+          <div data-id="name-field">
+            <label for="registerName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <div class="relative">
+              <input type="text" id="registerName" name="name" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent pl-10"
+                     placeholder="Enter your full name">
+              <i data-lucide="user" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            </div>
+          </div>
+          
+          <div data-id="register-email-field">
+            <label for="registerEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <div class="relative">
+              <input type="email" id="registerEmail" name="email" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent pl-10"
+                     placeholder="Enter your email">
+              <i data-lucide="mail" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            </div>
+          </div>
+          
+          <div data-id="register-password-field">
+            <label for="registerPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <div class="relative">
+              <input type="password" id="registerPassword" name="password" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent pl-10"
+                     placeholder="Create a password">
+              <i data-lucide="lock" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            </div>
+          </div>
+          
+          <div data-id="phone-field">
+            <label for="registerPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+            <div class="relative">
+              <input type="tel" id="registerPhone" name="phone"
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent pl-10"
+                     placeholder="+91 9876543210">
+              <i data-lucide="phone" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-2" data-id="terms-field">
+            <input type="checkbox" id="terms" required class="mt-1 rounded border-gray-300 text-purple-600 focus:ring-purple-500">
+            <label for="terms" class="text-sm text-gray-600">
+              I agree to the <a href="#" class="text-purple-600 hover:text-purple-500">Terms of Service</a> and 
+              <a href="#" class="text-purple-600 hover:text-purple-500">Privacy Policy</a>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full mt-6 bg-purple-600 text-white py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors font-medium" data-id="register-submit">
+          <i data-lucide="user-plus" class="w-5 h-5 inline mr-2"></i>
+          Create Account
+        </button>
+      </form>
+
+      <!-- Social Login -->
+      <div class="mt-6" data-id="social-login">
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-3" data-id="social-buttons">
+          <button class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50" data-id="google-login">
+            <svg class="w-5 h-5 text-red-500" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span class="ml-2">Google</span>
+          </button>
+
+          <button class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50" data-id="facebook-login">
+            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span class="ml-2">Facebook</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Home -->
+      <div class="mt-6 text-center" data-id="back-home">
+        <a href="index.html" class="text-sm text-gray-600 hover:text-gray-500 inline-flex items-center">
+          <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden" data-id="loading-overlay">
+    <div class="bg-white rounded-lg p-6 text-center" data-id="loading-content">
+      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-4"></div>
+      <p class="text-gray-600">Signing you in...</p>
+    </div>
+  </div>
+
+  <script type="module">
+    // Tab switching functionality
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTab = button.dataset.tab;
+        
+        // Update tab buttons
+        tabButtons.forEach(btn => btn.classList.remove('active', 'bg-white', 'text-gray-900', 'shadow-sm'));
+        tabButtons.forEach(btn => btn.classList.add('text-gray-500'));
+        button.classList.add('active', 'bg-white', 'text-gray-900', 'shadow-sm');
+        button.classList.remove('text-gray-500');
+        
+        // Update tab contents
+        tabContents.forEach(content => content.classList.remove('active'));
+        document.querySelector(`[data-tab="${targetTab}"].tab-content`).classList.add('active');
+      });
+    });
+
+    // Form submissions
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(loginForm);
+      const email = formData.get('email');
+      const password = formData.get('password');
+      
+      // Show loading
+      loadingOverlay.classList.remove('hidden');
+      
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Store user data
+        localStorage.setItem('localuxeUser', JSON.stringify({
+          email: email,
+          name: email.split('@'),
+          loginTime: Date.now()
+        }));
+        
+        // Redirect to planner
+        window.location.href = 'planner.html';
+        
+      } catch (error) {
+        alert('Login failed. Please try again.');
+        loadingOverlay.classList.add('hidden');
+      }
+    });
+
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(registerForm);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const password = formData.get('password');
+      const phone = formData.get('phone');
+      
+      // Show loading
+      loadingOverlay.classList.remove('hidden');
+      
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Store user data
+        localStorage.setItem('localuxeUser', JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone,
+          loginTime: Date.now()
+        }));
+        
+        // Redirect to planner
+        window.location.href = 'planner.html';
+        
+      } catch (error) {
+        alert('Registration failed. Please try again.');
+        loadingOverlay.classList.add('hidden');
+      }
+    });
+
+    // Social login handlers
+    document.getElementById('google-login')?.addEventListener('click', () => {
+      alert('Google login integration would be implemented here');
+    });
+
+    document.getElementById('facebook-login')?.addEventListener('click', () => {
+      alert('Facebook login integration would be implemented here');
+    });
+
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+
+  <style>
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab-btn.active {
+      background-color: white;
+      color: #1f2937;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    .tab-btn:not(.active) {
+      color: #6b7280;
+    }
+  </style>
+</body>
+</html>

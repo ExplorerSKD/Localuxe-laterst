@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Localuxe - AI Travel Planning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gradient-to-br from-blue-50 via-white to-indigo-50 min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+  
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 px-4" data-id="hero-section">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6" data-id="hero-title">
+        About Localuxe
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-id="hero-description">
+        We believe travel planning should be exciting, not exhausting. That's why we built the world's most intelligent travel itinerary generator.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-16 px-4" data-id="mission-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6" data-id="mission-content">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-id="mission-title">Our Mission</h2>
+          <p class="text-lg text-gray-600" data-id="mission-text-1">
+            At Localuxe, we're passionate about making travel accessible and enjoyable for everyone. We know that planning the perfect trip can be overwhelming, time-consuming, and stressful.
+          </p>
+          <p class="text-lg text-gray-600" data-id="mission-text-2">
+            That's why we've harnessed the power of artificial intelligence to create personalized, detailed itineraries that save you hours of research while ensuring you don't miss out on incredible experiences.
+          </p>
+          <div class="flex items-center space-x-4 pt-4" data-id="mission-stats">
+            <div class="text-center" data-id="stat-travelers">
+              <div class="text-2xl font-bold text-primary-600">10,000+</div>
+              <div class="text-sm text-gray-600">Happy Travelers</div>
+            </div>
+            <div class="text-center" data-id="stat-cities">
+              <div class="text-2xl font-bold text-primary-600">500+</div>
+              <div class="text-sm text-gray-600">Cities Covered</div>
+            </div>
+            <div class="text-center" data-id="stat-itineraries">
+              <div class="text-2xl font-bold text-primary-600">25,000+</div>
+              <div class="text-sm text-gray-600">Itineraries Created</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-primary-50 to-purple-50 rounded-2xl p-8" data-id="mission-visual">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="heart" class="w-12 h-12 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4" data-id="values-title">Our Core Values</h3>
+            <ul class="space-y-3 text-left" data-id="values-list">
+              <li class="flex items-center text-gray-600">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                Personalization over generic recommendations
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                Quality experiences at every budget level
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                Technology that empowers, not replaces, human curiosity
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                Sustainable and responsible travel practices
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="py-20 bg-white px-4" data-id="story-section">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16" data-id="story-header">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-id="story-title">How Localuxe Started</h2>
+        <p class="text-lg text-gray-600" data-id="story-subtitle">Born from a frustrating travel planning experience</p>
+      </div>
+
+      <div class="space-y-8" data-id="story-content">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8" data-id="story-block-1">
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <i data-lucide="lightbulb" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3" data-id="story-1-title">The Problem We Faced</h3>
+              <p class="text-gray-600" data-id="story-1-text">
+                Like many travelers, our founders spent countless hours researching destinations, reading reviews, comparing prices, and trying to create the perfect itinerary. What should have been exciting planning turned into overwhelming work.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8" data-id="story-block-2">
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3" data-id="story-2-title">The Eureka Moment</h3>
+              <p class="text-gray-600" data-id="story-2-text">
+                We realized that artificial intelligence could process vast amounts of travel data, understand personal preferences, and create customized itineraries in seconds. This was our lightbulb moment – why not use AI to solve travel planning once and for all?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8" data-id="story-block-3">
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <i data-lucide="rocket" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3" data-id="story-3-title">Building the Solution</h3>
+              <p class="text-gray-600" data-id="story-3-text">
+                We spent months training our AI on millions of travel reviews, location data, and user preferences. Today, Localuxe can create detailed, personalized itineraries that rival those made by professional travel planners, but in just seconds.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gray-50 px-4" data-id="features-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-id="features-header">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="features-title">What Makes Us Different</h2>
+        <p class="text-xl text-gray-600" data-id="features-description">We're not just another travel booking site – we're your intelligent travel planning companion</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-id="features-grid">
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="feature-ai">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="brain" class="w-6 h-6 text-blue-600"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3" data-id="feature-ai-title">Advanced AI Technology</h3>
+          <p class="text-gray-600 text-sm" data-id="feature-ai-description">
+            Our AI doesn't just recommend popular spots – it understands your unique preferences and creates truly personalized experiences.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="feature-data">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="database" class="w-6 h-6 text-green-600"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3" data-id="feature-data-title">Comprehensive Data</h3>
+          <p class="text-gray-600 text-sm" data-id="feature-data-description">
+            We analyze millions of reviews, ratings, and local insights to ensure every recommendation is backed by real traveler experiences.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="feature-budget">
+          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="calculator" class="w-6 h-6 text-purple-600"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3" data-id="feature-budget-title">Smart Budget Planning</h3>
+          <p class="text-gray-600 text-sm" data-id="feature-budget-description">
+            Get accurate cost estimates and optimize your spending to get the most value from your travel budget.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="feature-local">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="map-pin" class="w-6 h-6 text-orange-600"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3" data-id="feature-local-title">Local Expertise</h3>
+          <p class="text-gray-600 text-sm" data-id="feature-local-description">
+            Discover hidden gems and local favorites that you won't find in typical guidebooks or tourist sites.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="feature-time">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="clock" class="w-6 h-6 text-red-600"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3" data-id="feature-time-title">Save Hours of Planning</h3>
+          <p class="text-gray-600 text-sm" data-id="feature-time-description">
+            What used to take days of research now happens in seconds. Spend more time dreaming about your trip, less time planning it.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm" data-id="feature-flexible">
+          <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="refresh-cw" class="w-6 h-6 text-teal-600"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3" data-id="feature-flexible-title">Flexible & Adaptable</h3>
+          <p class="text-gray-600 text-sm" data-id="feature-flexible-description">
+            Plans that work for solo travelers, couples, families, and groups. Every itinerary adapts to your specific travel style.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 px-4" data-id="team-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-id="team-header">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="team-title">Meet the Team</h2>
+        <p class="text-xl text-gray-600" data-id="team-description">Passionate travelers and technologists working to revolutionize trip planning</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-id="team-grid">
+        <div class="text-center" data-id="team-member-1">
+          <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="user" class="w-12 h-12 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2" data-id="member-1-name">Alex Chen</h3>
+          <p class="text-primary-600 mb-2" data-id="member-1-role">Co-Founder & CEO</p>
+          <p class="text-sm text-gray-600" data-id="member-1-description">
+            Former Google engineer with 8+ years in AI/ML. Visited 40+ countries and believes technology should make travel more accessible.
+          </p>
+        </div>
+
+        <div class="text-center" data-id="team-member-2">
+          <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="user" class="w-12 h-12 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2" data-id="member-2-name">Sarah Rodriguez</h3>
+          <p class="text-primary-600 mb-2" data-id="member-2-role">Co-Founder & CTO</p>
+          <p class="text-sm text-gray-600" data-id="member-2-description">
+            Travel blogger turned tech entrepreneur. Combines deep travel knowledge with cutting-edge AI to create magical experiences.
+          </p>
+        </div>
+
+        <div class="text-center" data-id="team-member-3">
+          <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="user" class="w-12 h-12 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2" data-id="member-3-name">Marcus Kim</h3>
+          <p class="text-primary-600 mb-2" data-id="member-3-role">Head of Product</p>
+          <p class="text-sm text-gray-600" data-id="member-3-description">
+            UX designer who obsesses over making complex technology feel simple and delightful for everyday travelers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-primary-500 to-purple-600 px-4" data-id="cta-section">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6" data-id="cta-title">Ready to Experience the Future of Travel Planning?</h2>
+      <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto" data-id="cta-description">
+        Join thousands of smart travelers who are already using AI to create their perfect trips
+      </p>
+      <a 
+        href="index.html" 
+        class="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-50 transform hover:scale-105 transition-all shadow-lg"
+        data-id="cta-button"
+      >
+        <i data-lucide="compass" class="w-5 h-5 mr-2"></i>
+        Start Planning Your Trip
+      </a>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#badge-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

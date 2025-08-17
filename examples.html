@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example Itineraries - Localuxe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gradient-to-br from-blue-50 via-white to-indigo-50 min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+  
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 px-4" data-id="hero-section">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6" data-id="hero-title">
+        Inspiring Travel Itineraries
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-id="hero-description">
+        Explore real itineraries created by our AI for different destinations, budgets, and travel styles
+      </p>
+    </div>
+  </section>
+
+  <!-- Example Itineraries -->
+  <section class="pb-20 px-4" data-id="examples-section">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" data-id="examples-grid">
+        
+        <!-- Paris 3 Days -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden" data-id="paris-example">
+          <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=800&h=400&fit=crop')">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-4 left-6 text-white">
+              <h3 class="text-2xl font-bold" data-id="paris-title">Paris, France</h3>
+              <p class="text-sm opacity-90" data-id="paris-subtitle">3 Days • Mid-Range • Culture & Food</p>
+            </div>
+          </div>
+          <div class="p-6" data-id="paris-content">
+            <div class="flex items-center justify-between mb-4" data-id="paris-stats">
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
+                3 Days
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="dollar-sign" class="w-4 h-4 mr-1"></i>
+                $450 Total
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="star" class="w-4 h-4 mr-1"></i>
+                4.8/5 Rating
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-6" data-id="paris-highlights">
+              <h4 class="font-semibold text-gray-900">Highlights:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Visit Eiffel Tower at sunset
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Explore Louvre Museum with guided tour
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Seine River cruise and Notre-Dame
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Food tour in Le Marais district
+                </li>
+              </ul>
+            </div>
+            
+            <button class="w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium" data-id="paris-view-button">
+              <i data-lucide="eye" class="w-4 h-4 inline mr-2"></i>
+              View Full Itinerary
+            </button>
+          </div>
+        </div>
+
+        <!-- Tokyo 5 Days -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden" data-id="tokyo-example">
+          <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&h=400&fit=crop')">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-4 left-6 text-white">
+              <h3 class="text-2xl font-bold" data-id="tokyo-title">Tokyo, Japan</h3>
+              <p class="text-sm opacity-90" data-id="tokyo-subtitle">5 Days • Luxury • Culture & Adventure</p>
+            </div>
+          </div>
+          <div class="p-6" data-id="tokyo-content">
+            <div class="flex items-center justify-between mb-4" data-id="tokyo-stats">
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
+                5 Days
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="dollar-sign" class="w-4 h-4 mr-1"></i>
+                $1,200 Total
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="star" class="w-4 h-4 mr-1"></i>
+                4.9/5 Rating
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-6" data-id="tokyo-highlights">
+              <h4 class="font-semibold text-gray-900">Highlights:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Private sushi experience in Tsukiji
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Mount Fuji day trip with premium transport
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Traditional tea ceremony in historic temple
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Robot Restaurant and Tokyo nightlife
+                </li>
+              </ul>
+            </div>
+            
+            <button class="w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium" data-id="tokyo-view-button">
+              <i data-lucide="eye" class="w-4 h-4 inline mr-2"></i>
+              View Full Itinerary
+            </button>
+          </div>
+        </div>
+
+        <!-- Barcelona 4 Days -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden" data-id="barcelona-example">
+          <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&h=400&fit=crop')">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-4 left-6 text-white">
+              <h3 class="text-2xl font-bold" data-id="barcelona-title">Barcelona, Spain</h3>
+              <p class="text-sm opacity-90" data-id="barcelona-subtitle">4 Days • Budget • Culture & Nightlife</p>
+            </div>
+          </div>
+          <div class="p-6" data-id="barcelona-content">
+            <div class="flex items-center justify-between mb-4" data-id="barcelona-stats">
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
+                4 Days
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="dollar-sign" class="w-4 h-4 mr-1"></i>
+                $280 Total
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="star" class="w-4 h-4 mr-1"></i>
+                4.7/5 Rating
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-6" data-id="barcelona-highlights">
+              <h4 class="font-semibold text-gray-900">Highlights:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Free walking tour of Gothic Quarter
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Sagrada Familia and Gaudí architecture
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Beach day at Barceloneta with tapas
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Flamenco show and local bars crawl
+                </li>
+              </ul>
+            </div>
+            
+            <button class="w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium" data-id="barcelona-view-button">
+              <i data-lucide="eye" class="w-4 h-4 inline mr-2"></i>
+              View Full Itinerary
+            </button>
+          </div>
+        </div>
+
+        <!-- New York 2 Days -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden" data-id="newyork-example">
+          <div class="relative h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&h=400&fit=crop')">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-4 left-6 text-white">
+              <h3 class="text-2xl font-bold" data-id="newyork-title">New York City, USA</h3>
+              <p class="text-sm opacity-90" data-id="newyork-subtitle">2 Days • Mid-Range • Culture & Shopping</p>
+            </div>
+          </div>
+          <div class="p-6" data-id="newyork-content">
+            <div class="flex items-center justify-between mb-4" data-id="newyork-stats">
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
+                2 Days
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="dollar-sign" class="w-4 h-4 mr-1"></i>
+                $320 Total
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i data-lucide="star" class="w-4 h-4 mr-1"></i>
+                4.6/5 Rating
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-6" data-id="newyork-highlights">
+              <h4 class="font-semibold text-gray-900">Highlights:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Central Park and Metropolitan Museum
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Times Square and Broadway show
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Shopping spree in SoHo and Fifth Avenue
+                </li>
+                <li class="flex items-start">
+                  <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                  Brooklyn Bridge walk at sunset
+                </li>
+              </ul>
+            </div>
+            
+            <button class="w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium" data-id="newyork-view-button">
+              <i data-lucide="eye" class="w-4 h-4 inline mr-2"></i>
+              View Full Itinerary
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-white px-4" data-id="testimonials-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-id="testimonials-header">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="testimonials-title">What Travelers Are Saying</h2>
+        <p class="text-xl text-gray-600" data-id="testimonials-description">Real reviews from people who used these AI-generated itineraries</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-id="testimonials-grid">
+        <div class="bg-gray-50 rounded-xl p-6" data-id="testimonial-1">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4" data-id="testimonial-1-text">
+            "The Paris itinerary was absolutely perfect! Every restaurant recommendation was spot-on and the timing worked perfectly."
+          </p>
+          <div class="flex items-center" data-id="testimonial-1-author">
+            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-3">
+              <i data-lucide="user" class="w-5 h-5 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Sarah M.</p>
+              <p class="text-sm text-gray-500">Used Paris 3-day itinerary</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6" data-id="testimonial-2">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4" data-id="testimonial-2-text">
+            "Saved me hours of planning for Tokyo! The cultural experiences suggested were authentic and amazing."
+          </p>
+          <div class="flex items-center" data-id="testimonial-2-author">
+            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-3">
+              <i data-lucide="user" class="w-5 h-5 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Mike K.</p>
+              <p class="text-sm text-gray-500">Used Tokyo 5-day itinerary</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6" data-id="testimonial-3">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4" data-id="testimonial-3-text">
+            "Perfect budget itinerary for Barcelona! Discovered places I never would have found on my own."
+          </p>
+          <div class="flex items-center" data-id="testimonial-3-author">
+            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-3">
+              <i data-lucide="user" class="w-5 h-5 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Emma L.</p>
+              <p class="text-sm text-gray-500">Used Barcelona 4-day itinerary</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-primary-50 to-purple-50 px-4" data-id="cta-section">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-id="cta-title">Create Your Own Perfect Itinerary</h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto" data-id="cta-description">
+        Let our AI craft a personalized travel plan just for you, based on your preferences and budget
+      </p>
+      <a 
+        href="index.html" 
+        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 transform hover:scale-105 transition-all shadow-lg"
+        data-id="cta-button"
+      >
+        <i data-lucide="compass" class="w-5 h-5 mr-2"></i>
+        Start Planning Your Trip
+      </a>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#badge-container');
+    
+    // Add click handlers for view buttons (placeholder functionality)
+    document.querySelectorAll('[data-id$="-view-button"]').forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Full itinerary view coming soon! This would show the complete day-by-day breakdown.');
+      });
+    });
+    
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
